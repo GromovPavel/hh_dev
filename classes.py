@@ -1,16 +1,19 @@
 # -*- coding: utf-8 -*-
 def check_degree(requirement):
+    if requirement is None:
+        degree = False
+        return degree
     if "Высшее" in requirement:
-        degree = "True"
+        degree = True
     else:
-        degree = "Fasle"
+        degree = False
     return degree
+
 
 class vacancy():
     period = 1
-    name = area = station_name = employer = requirement = alternate_url = is_open = degree =''
     
-    def fill_vacancy(self, name, area, address, employer, requirement, alternate_url, published_at):    
+    def fill_vacancy(self, name, area, address, employer, requirement, alternate_url):    
         self.name = name
         self.area = area
         try:
@@ -21,4 +24,5 @@ class vacancy():
         self.requirement = requirement
         self.degree = check_degree(requirement)
         self.alternate_url = alternate_url
-        self.published_at = published_at
+        #self.published_at = published_at // I'll add this later.
+        #self.currency = currency
